@@ -1,5 +1,5 @@
-﻿using FluentValidation.Results;
-using FluentValidation;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 
 namespace Employee.Integration.Application.Common.Behaviours

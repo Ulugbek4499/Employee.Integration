@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmployee
 {
-    public class UpdateEmployeeCommand:IRequest
+    public class UpdateEmployeeCommand : IRequest
     {
         public int Id { get; set; }
         public string Payroll_Number { get; set; }
