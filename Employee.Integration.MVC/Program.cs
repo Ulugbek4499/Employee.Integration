@@ -13,7 +13,7 @@ namespace Employee.Integration.MVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
-            builder.Services.AddApi(builder.Configuration);
+            //builder.Services.AddApi(builder.Configuration);
             builder.Host.UseSerilog();
 
 

@@ -11,14 +11,9 @@ namespace Employee.Integration.MVC
         public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
         {
             SerilogSettings(configuration);
-            //services.AddHostedService<BotBackgroundService>();
+
             services.AddSingleton<ITelegramBotClient>(
                 new TelegramBotClient(configuration?.GetConnectionString("TelegramToken")));
-
-            services.AddControllers().AddJsonOptions(x =>
-            {
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-            });
 
             services.AddEndpointsApiExplorer();
             services.AddAuthorization();

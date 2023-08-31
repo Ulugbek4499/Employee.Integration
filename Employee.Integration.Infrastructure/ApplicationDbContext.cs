@@ -16,5 +16,6 @@ namespace Employee.Integration.Infrastructure
 
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }
