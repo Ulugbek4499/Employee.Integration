@@ -1,5 +1,6 @@
 using Employee.Integration.Application;
 using Employee.Integration.Infrastructure;
+using Serilog;
 
 namespace Employee.Integration.MVC
 {
@@ -12,7 +13,9 @@ namespace Employee.Integration.MVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
-     
+            builder.Services.AddApi(builder.Configuration);
+            builder.Host.UseSerilog();
+
 
             var app = builder.Build();
 
