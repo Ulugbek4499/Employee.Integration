@@ -34,10 +34,17 @@
                     <table id="EmployeesTable" class="table">
                         <thead>
                             <tr>
-                                <th style="width: 25%;">Employee Category</th>
-                                <th style="width: 25%;">Amount</th>
-                                <th style="width: 25%;">Comment</th>
-                                <th style="width: 25%;">Employee Time</th>
+                                <th style="width: 25%;">Payroll_Number</th>
+                                <th style="width: 25%;">Forenames</th>
+                                <th style="width: 25%;">Surname</th>
+                                <th style="width: 25%;">DateOfBirth</th>
+                                <th style="width: 25%;">Telephone</th>
+                                <th style="width: 25%;">Mobile</th>
+                                <th style="width: 25%;">Address</th>
+                                <th style="width: 25%;">Address_2</th>
+                                <th style="width: 25%;">Postcode</th>
+                                <th style="width: 25%;">EMail_Home</th>
+                                <th style="width: 25%;">DateOfBirth</th>
                                 <th style="width: 25%;">Actions</th>
                             </tr>
                         </thead>
@@ -45,10 +52,17 @@
                             @foreach (var Employee in Model)
                             {
                                 <tr>
-                                    <td>@Employee.EmployeeCategory</td>
-                                    <td>@Employee.Amount</td>
-                                    <td>@Employee.Comment</td>
-                                    <td>@Employee.Time</td>
+                                    <td>@Employee.Payroll_Number</td>
+                                    <td>@Employee.Forenames</td>
+                                    <td>@Employee.Surname</td>
+                                    <td>@Employee.DateOfBirth</td>
+                                    <td>@Employee.Telephone</td>
+                                    <td>@Employee.Mobile</td>
+                                    <td>@Employee.Address</td>
+                                    <td>@Employee.Address_2</td>
+                                    <td>@Employee.Postcode</td>
+                                    <td>@Employee.EMail_Home</td>
+                                    <td>@Employee.DateOfBirth</td>
                                     <td class="action-links">
                                         <div style="display:flex; gap:5px">
                                             <a href="@Url.Action("UpdateEmployee", new { id = Employee.Id })" class="btn btn-secondary">Edit</a>
