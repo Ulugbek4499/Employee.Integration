@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Employee.Integration.Application.UseCases.Employees.Response
+namespace Employee.Integration.Application.UseCases.Employees.Queries.GetAllEmployees
 {
-    public class EmployeeResponse
+    internal class GetAllEmployeesQuery
     {
     }
 }
