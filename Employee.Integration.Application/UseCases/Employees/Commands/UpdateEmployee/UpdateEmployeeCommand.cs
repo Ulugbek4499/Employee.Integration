@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using DocumentFormat.OpenXml.Drawing.Charts;
+﻿using AutoMapper;
 using Employee.Integration.Application.Common.Exceptions;
 using Employee.Integration.Application.Common.Interfaces;
 using MediatR;
