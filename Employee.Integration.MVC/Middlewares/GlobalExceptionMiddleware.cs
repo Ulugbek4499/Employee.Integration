@@ -1,7 +1,9 @@
 ﻿using Employee.Integration.Application.Common.Exceptions;
+using Employee.Integration.Application.Common.Model;
 using Newtonsoft.Json;
 using Serilog;
 using System.Net;
+using Telegram.Bot;
 
 namespace Employee.Integration.MVC.Middlewares
 {
@@ -59,6 +61,7 @@ namespace Employee.Integration.MVC.Middlewares
                 IsSuccess = false,
                 Result = ex
             };
+
             var result = JsonConvert.SerializeObject(error);
             await response.WriteAsync(result);
         }

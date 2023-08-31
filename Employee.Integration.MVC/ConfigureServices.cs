@@ -1,9 +1,12 @@
 ﻿using Serilog.Events;
 using Serilog;
+using Telegram.Bot;
+using System.Text.Json.Serialization;
+using TelegramSink;
 
 namespace Employee.Integration.MVC
 {
-   /* public static class ConfigureServices
+    public static class ConfigureServices
     {
         public static IServiceCollection AddApi(this IServiceCollection services, IConfiguration configuration)
         {
@@ -11,8 +14,7 @@ namespace Employee.Integration.MVC
             //services.AddHostedService<BotBackgroundService>();
             services.AddSingleton<ITelegramBotClient>(
                 new TelegramBotClient(configuration?.GetConnectionString("TelegramToken")));
-            //services.AddTransient<IUpdateHandler, UpdateHandler>();
-            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
             services.AddControllers().AddJsonOptions(x =>
             {
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
@@ -20,51 +22,8 @@ namespace Employee.Integration.MVC
 
             services.AddEndpointsApiExplorer();
             services.AddAuthorization();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtSettings(configuration);
             services.AddHttpContextAccessor();
-            services.AddSwaggerGen();
-
-            services.AddStackExchangeRedisCache(option =>
-            {
-                option.Configuration = configuration.GetConnectionString("RedisConnect");
-                option.InstanceName = "master";
-            });
-
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Example API", Version = "v1" });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Scheme = "bearer",
-                    Description = "Please insert JWT token into field"
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    new string[] { }
-                }
-            });
-                c.MapType<DateOnly>(() => new OpenApiSchema
-                {
-                    Type = "string",
-                    Format = "date"
-                });
-
-            });
+          
             return services;
         }
 
@@ -84,5 +43,5 @@ namespace Employee.Integration.MVC
                 minimumLevel: LogEventLevel.Error)
                .CreateLogger();
         }
-    }*/
+    }
 }
