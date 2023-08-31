@@ -65,16 +65,16 @@ namespace Employee.Integration.Employee.UseCases.Employees.Reports
             };
 
             excelDataTable.Columns.Add("Id", typeof(int));
-            excelDataTable.Columns.Add("Payroll_Number", typeof(string));
+            excelDataTable.Columns.Add("Payroll Number", typeof(string));
             excelDataTable.Columns.Add("Forenames", typeof(string));
             excelDataTable.Columns.Add("Surname", typeof(int));
-            excelDataTable.Columns.Add("DateOfBirth", typeof(DateTime));
+            excelDataTable.Columns.Add("Date Of Birth", typeof(DateTime));
             excelDataTable.Columns.Add("Telephone", typeof(string));
             excelDataTable.Columns.Add("Mobile", typeof(string));
             excelDataTable.Columns.Add("Address", typeof(string));
-            excelDataTable.Columns.Add("Address_2", typeof(string));
+            excelDataTable.Columns.Add("Address 2", typeof(string));
             excelDataTable.Columns.Add("Postcode", typeof(string));
-            excelDataTable.Columns.Add("EMail_Home", typeof(int));
+            excelDataTable.Columns.Add("EMail Home", typeof(int));
             excelDataTable.Columns.Add("StartDate", typeof(DateTime));
 
             var EmployeesList = _mapper.Map<List<EmployeeResponse>>(AllEmployees);
