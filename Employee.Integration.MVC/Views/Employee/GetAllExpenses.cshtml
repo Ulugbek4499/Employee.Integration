@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model Employee.Integration.Application.UseCases.Employees.Response.EmployeeResponse[]
+<h3 class="text-center">All Employees</h3>
+<div class="row">
+    <div class="col">
+        <div class="input-group mb-1 mt-3" style="display:flex; justify-content:center; gap:170px">
+            <a href="@Url.Action("CreateEmployee")" class="btn btn-success mr-2">Create Employee</a>
+            <div style="display:flex; gap:5px">
+                <input id="searchInput" type="text" class="form-control" placeholder="Search" style="max-width: 200px;">
+                <div class="input-group-append">
+                    <button id="searchButton" class="btn btn-primary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<div class="container" style="height: 55vh;">
+    <div class="row" style="display:flex; justify-content:center">
+        <div class="col-lg-6">
+            <div class="custom-cards">
+                @{
+                    if (Model.Length == 0)
+                    {
+                        <h2>There are no Employees yet...</h2>
+                    }
+                }
+
+                <div class="table-container" style="overflow-y: scroll;height:58vh; display:flex; justify-content:center">
+                    <table id="EmployeesTable" class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Employee Category</th>
+                                <th style="width: 25%;">Amount</th>
+                                <th style="width: 25%;">Comment</th>
+                                <th style="width: 25%;">Employee Time</th>
+                                <th style="width: 25%;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Employee in Model)
+                            {
+                                <tr>
+                                    <td>@Employee.EmployeeCategory</td>
+                                    <td>@Employee.Amount</td>
+                                    <td>@Employee.Comment</td>
+                                    <td>@Employee.Time</td>
+                                    <td class="action-links">
+                                        <div style="display:flex; gap:5px">
+                                            <a href="@Url.Action("UpdateEmployee", new { id = Employee.Id })" class="btn btn-secondary">Edit</a>
+                                            <a href="@Url.Action("DeleteEmployee", new { id = Employee.Id })" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var rows = document.getElementById('EmployeesTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var match = false;
+
+            for (var j = 0; j < cells.length; j++) {
+                var cellText = cells[j].innerText.toLowerCase();
+                if (cellText.includes(input)) {
+                    match = true;
+                    break;
+                }
+            }
+
+            rows[i].style.display = match ? '' : 'none';
+        }
+    });
+</script>

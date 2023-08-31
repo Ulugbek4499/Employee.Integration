@@ -1,0 +1,53 @@
+﻿@using Employee.Integration.Application.UseCases.Employees.Commands.CreateEmployee;
+@using Employee.Integration.Domain.Entities;
+
+@{
+    ViewData["Title"] = "CreateEmployee";
+    Layout = "_Layout";
+}
+
+@model CreateEmployeeCommand
+
+<h3 class="text-center">Add new Employee</h3>
+<hr />
+<form asp-controller="Employee" asp-action="CreateEmployee" enctype="multipart/form-data" method="post">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+               @* <div class="form-group">
+                    <label asp-for="EmployeeCategory">Employee Category:</label>
+                    <select asp-for="EmployeeCategory" class="form-control" required>
+                        <option value="">Choose Category</option>
+                        @foreach (var status in Enum.GetValues(typeof(EmployeeCategory)))
+                        {
+                            <option value="@status">@status</option>
+                        }
+                    </select>
+                    <span asp-validation-for="EmployeeCategory" class="text-danger"></span>
+                </div>*@
+
+                <div class="form-group mt-3">
+                    <label asp-for="Amount">Amount:</label>
+                    <input asp-for="Amount" type="number" class="form-control" required placeholder="Enter Amount" />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label asp-for="Comment" class="form-label">Comment:</label>
+                    <input asp-for="Comment" type="text" class="form-control" placeholder="Enter Comment">
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label asp-for="Time">Employee Time:</label>
+                    <input asp-for="Time" type="date" class="form-control" required />
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+
+                <div class="form-group button-group mt-3">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

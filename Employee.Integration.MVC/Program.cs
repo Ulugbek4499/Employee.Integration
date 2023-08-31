@@ -15,6 +15,7 @@ namespace Employee.Integration.MVC
             builder.Services.AddInfrastructure(builder.Configuration);
             //builder.Services.AddApi(builder.Configuration);
             builder.Host.UseSerilog();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 
             var app = builder.Build();
