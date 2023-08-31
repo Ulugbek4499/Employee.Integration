@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Employee.Integration.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Employee.Integration.Application.Common.Interfaces
 {
-    internal interface IApplicationDbContext
+    public interface IApplicationDbContext
     {
+        DbSet<Employee> Employees { get; set; }
+       
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }
