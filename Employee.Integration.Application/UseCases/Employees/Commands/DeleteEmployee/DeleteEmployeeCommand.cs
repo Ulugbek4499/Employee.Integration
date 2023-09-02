@@ -27,10 +27,7 @@ namespace Employee.Integration.Application.UseCases.Employees.Commands.DeleteEmp
         }
 
         private Domain.Entities.Employee FilterIfEmployeeExsists(int id)
-            => _dbContext.Employees
-            .FirstOrDefault(c => c.Id == id)
-                ?? throw new NotFoundException(
-                    " There is no Employee with id. ");
-
+                => _dbContext.Employees.FirstOrDefault(c => c.Id == id)?? 
+                throw new NotFoundException("There is no Employee with this id.");
     }
 }

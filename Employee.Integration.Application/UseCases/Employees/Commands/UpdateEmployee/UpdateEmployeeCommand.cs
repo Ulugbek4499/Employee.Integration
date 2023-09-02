@@ -38,13 +38,12 @@ namespace Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmp
             Domain.Entities.Employee employee = await FilterIfEmployeeExists(request.Id);
             _mapper.Map(request, employee);
             _context.Employees.Update(employee);
+           
             await _context.SaveChangesAsync(cancellationToken);
         }
 
         private async Task<Domain.Entities.Employee> FilterIfEmployeeExists(int id)
-         => await _context.Employees
-                    .FirstOrDefaultAsync(x => x.Id == id)
-                     ?? throw new NotFoundException(
-                              " there is no employee with this id. ");
+                 => await _context.Employees.FirstOrDefaultAsync(x => x.Id == id)
+                 ?? throw new NotFoundException("There is no employee with this id.");
     }
 }
