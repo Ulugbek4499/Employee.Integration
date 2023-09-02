@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="~/css/site.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <title>@ViewData["Title"] - HomeBudgetApp.MVC.UI</title>
+    <title>@ViewData["Title"] - Employee.Integration.MVC</title>
     <style>
         /* Custom styles */
         .social-links {
@@ -103,12 +103,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a asp-controller="Expense" asp-action="GetAllExpenses" class="nav-link">
+                        <a asp-controller="Employee" asp-action="GetAllEmployees" class="nav-link">
                             <div class="icon-wrapper">
                                 <i class="fas fa-receipt"></i>
                             </div>
                             <div class="name-wrapper">
-                                Expenses
+                                Employees
                             </div>
                         </a>
                     </li>
@@ -123,12 +123,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a asp-controller="Expense" asp-action="ShowDataInCharts" class="nav-link">
+                        <a asp-controller="Employee" asp-action="ShowDataInCharts" class="nav-link">
                             <div class="icon-wrapper">
                                 <i class="fas fa-chart-pie"></i>
                             </div>
                             <div class="name-wrapper">
-                                Expense Indexes
+                                Employee Indexes
                             </div>
                         </a>
                     </li>
@@ -158,9 +158,9 @@
     <footer class="w-100 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-2">
+              @*  <div class="col-2">
                     <partial name="_LoginPartial" />
-                </div>
+                </div>*@
                 <div class="col-10 text-end">
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/" class="icon-link">

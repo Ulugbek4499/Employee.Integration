@@ -2,27 +2,30 @@
 using Employee.Integration.Application.Common.Interfaces;
 using Employee.Integration.Application.UseCases.Employees.Response;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Employee.Integration.Application.UseCases.Employees.Queries.GetAllEmployees
 {
-    public record GetAllEmployeesQuery : IRequest<IEnumerable<EmployeeResponse>>;
+    public record GetAllEmployeesQuery : IRequest<EmployeeResponse[]>;
 
-    public class GetAllEmployeesQueryHandler : IRequestHandler<GetAllEmployeesQuery, IEnumerable<EmployeeResponse>>
+    public class GetEmployeesQueryHandler : IRequestHandler<GetAllEmployeesQuery, EmployeeResponse[]>
     {
-        private readonly IMapper _mapper;
         private readonly IApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public GetAllEmployeesQueryHandler(IMapper mapper, IApplicationDbContext context)
+        public GetEmployeesQueryHandler(
+            IApplicationDbContext context,
+            IMapper mapper)
         {
-            _mapper = mapper;
             _context = context;
+            _mapper = mapper;
         }
 
-        public Task<IEnumerable<EmployeeResponse>> Handle(GetAllEmployeesQuery request, CancellationToken cancellationToken)
+        public async Task<EmployeeResponse[]> Handle(GetAllEmployeesQuery request, CancellationToken cancellationToken)
         {
-            IEnumerable<Domain.Entities.Employee> Employees = _context.Employees;
+            var Employees = await _context.Employees.ToArrayAsync();
 
-            return Task.FromResult(_mapper.Map<IEnumerable<EmployeeResponse>>(Employees));
+            return _mapper.Map<EmployeeResponse[]>(Employees);
         }
     }
 }

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Employee.Integration.MVC.Controllers
 {
-    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class ApiBaseController : Controller
