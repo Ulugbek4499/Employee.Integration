@@ -40,13 +40,13 @@ namespace Employee.Integration.MVC.Controllers
         }
 
         [HttpGet("[action]")]
-        public async ValueTask<IActionResult> CreateEmployeeFromCsv()
+        public async ValueTask<IActionResult> CreateEmployeeFromCSV()
         {
             return View();
         }
 
         [HttpPost("[action]")]
-        public async ValueTask<IActionResult> CreateEmployeeFromCsv(IFormFile csvfile)
+        public async ValueTask<IActionResult> CreateEmployeeFromCSV(IFormFile csvfile)
         {
             var result = await Mediator.Send(new AddEmployeesFromCsv(csvfile));
 

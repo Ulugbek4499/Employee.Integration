@@ -37,8 +37,6 @@ public class AddEmployeesFromCsvHandler : IRequestHandler<AddEmployeesFromCsv, L
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
-                var dateOfBirthFormat = "dd/MM/yyyy";
-                var startDateFormat = "dd/MM/yyyy";
 
                 // Skip the header row
                 parser.ReadLine();
@@ -53,33 +51,19 @@ public class AddEmployeesFromCsvHandler : IRequestHandler<AddEmployeesFromCsv, L
                         continue;
                     }
 
-                    DateTime dateOfBirth;
-                    if (!DateTime.TryParseExact(fields[3], dateOfBirthFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateOfBirth))
-                    {
-                        // Handle invalid dateOfBirth format
-                        continue;
-                    }
-
-                    DateTime startDate;
-                    if (!DateTime.TryParseExact(fields[10], startDateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out startDate))
-                    {
-                        // Handle invalid startDate format
-                        continue;
-                    }
-
                     var employee = new Domain.Entities.Employee()
                     {
                         Payroll_Number = fields[0],
                         Forenames = fields[1],
                         Surname = fields[2],
-                        DateOfBirth = dateOfBirth,
+                        DateOfBirth = DateTime.Parse(fields[3]),
                         Telephone = fields[4],
                         Mobile = fields[5],
                         Address = fields[6],
                         Address_2 = fields[7],
                         Postcode = fields[8],
                         EMail_Home = fields[9],
-                        StartDate = startDate,
+                        StartDate = DateTime.Parse(fields[10]),
                     };
 
                     result.Add(employee);
