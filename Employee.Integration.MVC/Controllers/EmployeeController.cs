@@ -51,7 +51,6 @@ namespace Employee.Integration.MVC.Controllers
             var result = await Mediator.Send(new AddEmployeesFromCsv(csvfile));
 
             return RedirectToAction("GetAllEmployees");
-
         }
 
         [HttpGet("[action]")]
