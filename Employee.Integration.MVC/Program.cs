@@ -19,6 +19,8 @@ namespace Employee.Integration.MVC
 
 
             var app = builder.Build();
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 
             if (!app.Environment.IsDevelopment())
             {
