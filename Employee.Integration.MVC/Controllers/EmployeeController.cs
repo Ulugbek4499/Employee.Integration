@@ -3,6 +3,8 @@ using Employee.Integration.Application.UseCases.Employees.Commands.DeleteEmploye
 using Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmployee;
 using Employee.Integration.Application.UseCases.Employees.Queries.GetAllEmployees;
 using Employee.Integration.Application.UseCases.Employees.Queries.GetEmployeeById;
+using Employee.Integration.Application.UseCases.Employees.Reports;
+using Employee.Integration.Employee.UseCases.Employees.Reports;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employee.Integration.MVC.Controllers
@@ -19,6 +21,60 @@ namespace Employee.Integration.MVC.Controllers
         public async ValueTask<IActionResult> CreateEmployee([FromForm] CreateEmployeeCommand Employee)
         {
             await Mediator.Send(Employee);
+
+            return RedirectToAction("GetAllEmployees");
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> CreateEmployeeFromExcel()
+        {
+            return View();
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<IActionResult> CreateEmployeeFromExcel(AddEmployeesFromExcel Employee)
+        {
+            await Mediator.Send(Employee);
+
+            return RedirectToAction("GetAllEmployees");
+
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> CreateEmployeeFromCsv()
+        {
+            return View();
+        }
+
+        [HttpPost("[action]")]
+        public async ValueTask<IActionResult> CreateEmployeeFromCsv(AddEmployeesFromCsv Employee)
+        {
+            await Mediator.Send(Employee);
+
+            return RedirectToAction("GetAllEmployees");
+
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllEmployees()
+        {
+            var Employees = await Mediator.Send(new GetAllEmployeesQuery());
+
+            return View(Employees);
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllEmployeesExcel()
+        {
+            await Mediator.Send(new GetEmployeesExcel());
+
+            return RedirectToAction("GetAllEmployees");
+        }
+
+        [HttpGet("[action]")]
+        public async ValueTask<IActionResult> GetAllEmployeesCsv()
+        {
+            await Mediator.Send(new GetEmployeesCsv());
 
             return RedirectToAction("GetAllEmployees");
         }
@@ -43,14 +99,6 @@ namespace Employee.Integration.MVC.Controllers
             await Mediator.Send(new DeleteEmployeeCommand(Id));
 
             return RedirectToAction("GetAllEmployees");
-        }
-
-        [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllEmployees()
-        {
-            var Employees = await Mediator.Send(new GetAllEmployeesQuery());
-
-            return View(Employees);
         }
 
         [HttpGet("[action]")]
