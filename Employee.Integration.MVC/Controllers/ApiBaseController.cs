@@ -10,7 +10,8 @@ namespace Employee.Integration.MVC.Controllers
     {
         private IMediator? _mediator;
         public IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetRequiredService<IMediator>();
-        protected IWebHostEnvironment _hostEnviroment
-       => HttpContext.RequestServices.GetRequiredService<IWebHostEnvironment>();
+
+/*        protected IWebHostEnvironment _hostEnviroment
+       => HttpContext.RequestServices.GetRequiredService<IWebHostEnvironment>();*/
     }
 }

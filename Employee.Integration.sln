@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Integration.MVC", "Employee.Integration.MVC\Employee.Integration.MVC.csproj", "{38AA1191-DF02-4B46-B2E9-613C0981828F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Integration.MVC", "Employee.Integration.MVC\Employee.Integration.MVC.csproj", "{38AA1191-DF02-4B46-B2E9-613C0981828F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Integration.Domain", "Employee.Integration.Domain\Employee.Integration.Domain.csproj", "{C649D992-2320-466A-8DF2-9CF8C278D74C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Integration.Domain", "Employee.Integration.Domain\Employee.Integration.Domain.csproj", "{C649D992-2320-466A-8DF2-9CF8C278D74C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Integration.Application", "Employee.Integration.Application\Employee.Integration.Application.csproj", "{75F1244B-4104-4A90-ABF5-82AC9711DF0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Integration.Application", "Employee.Integration.Application\Employee.Integration.Application.csproj", "{75F1244B-4104-4A90-ABF5-82AC9711DF0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Integration.Infrastructure", "Employee.Integration.Infrastructure\Employee.Integration.Infrastructure.csproj", "{0963F80E-A988-4528-892F-FF4985E88FA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Integration.Infrastructure", "Employee.Integration.Infrastructure\Employee.Integration.Infrastructure.csproj", "{0963F80E-A988-4528-892F-FF4985E88FA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
