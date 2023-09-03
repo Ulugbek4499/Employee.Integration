@@ -62,19 +62,19 @@ namespace Employee.Integration.MVC.Controllers
         }
 
         [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllEmployeesExcel()
+        public async ValueTask<FileResult> GetAllEmployeesExcel(string fileName = "employeesExcel")
         {
-            await Mediator.Send(new GetEmployeesExcel());
+            var result = await Mediator.Send(new GetEmployeesExcel { FileName = fileName });
 
-            return RedirectToAction("GetAllEmployees");
+            return File(result.FileContents, result.Option, result.FileName);
         }
 
         [HttpGet("[action]")]
-        public async ValueTask<IActionResult> GetAllEmployeesCsv()
+        public async ValueTask<IActionResult> GetAllEmployeesCsv(string fileName = "employeesCsv")
         {
-            await Mediator.Send(new GetEmployeesCsv());
+            var result = await Mediator.Send(new GetEmployeesCsv { FileName = fileName });
 
-            return RedirectToAction("GetAllEmployees");
+            return File(result.FileContents, result.Option, result.FileName);
         }
 
         [HttpGet("[action]")]
