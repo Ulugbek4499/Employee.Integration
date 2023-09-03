@@ -32,12 +32,11 @@ namespace Employee.Integration.MVC.Controllers
         }
 
         [HttpPost("[action]")]
-        public async ValueTask<IActionResult> CreateEmployeeFromExcel(AddEmployeesFromExcel Employee)
+        public async ValueTask<IActionResult> CreateEmployeeFromExcel(IFormFile excelfile)
         {
-            await Mediator.Send(Employee);
+            var result = await Mediator.Send(new AddEmployeesFromExcel(excelfile));
 
             return RedirectToAction("GetAllEmployees");
-
         }
 
         [HttpGet("[action]")]
@@ -47,9 +46,9 @@ namespace Employee.Integration.MVC.Controllers
         }
 
         [HttpPost("[action]")]
-        public async ValueTask<IActionResult> CreateEmployeeFromCsv(AddEmployeesFromCsv Employee)
+        public async ValueTask<IActionResult> CreateEmployeeFromCsv(IFormFile csvfile)
         {
-            await Mediator.Send(Employee);
+            var result = await Mediator.Send(new AddEmployeesFromCsv(csvfile));
 
             return RedirectToAction("GetAllEmployees");
 
