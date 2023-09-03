@@ -92,7 +92,7 @@
         <div class="row">
             <aside class="bg-dark text-light col-2 sidebar" style="height: 100vh; width: 200px">
                 <ul class="nav flex-column" style="padding-top: 25px">
-                    <li class="nav-item">
+                    <li class="nav-item mb-3">
                         <a asp-controller="Home" asp-action="Index" class="nav-link">
                             <div class="icon-wrapper">
                                 <i class="fas fa-home"></i>
@@ -102,53 +102,73 @@
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mb-3">
                         <a asp-controller="Employee" asp-action="GetAllEmployees" class="nav-link">
                             <div class="icon-wrapper">
-                                <i class="fas fa-receipt"></i>
+                                <i class="fa-solid fa-users"></i>
                             </div>
                             <div class="name-wrapper">
                                 Employees
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="Employee" asp-action="GetAllEmployeesExcel" class="nav-link">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-money-bill-wave"></i>
-                            </div>
-                            <div class="name-wrapper">
-                                Get Employee Excel
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Employee" asp-action="GetAllEmployeesCsv" class="nav-link">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-chart-pie"></i>
-                            </div>
-                            <div class="name-wrapper">
-                                Get Employee Csv
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item mb-3">
                         <a asp-controller="Employee" asp-action="CreateEmployeeFromCsv" class="nav-link">
                             <div class="icon-wrapper">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fa-solid fa-file-csv"></i>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i class="fa-solid fa-upload"></i>
                             </div>
                             <div class="name-wrapper">
-                                Create Employee From Csv
+                                Create From Csv
                             </div>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a asp-controller="Employee" asp-action="CreateEmployeeFromExcel" class="nav-link">
+                    <li class="nav-item mb-3">
+                        <a asp-controller="Employee" asp-action="GetAllEmployeesCsv" class="nav-link">
                             <div class="icon-wrapper">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fa-solid fa-download"></i>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i class="fa-solid fa-file-csv"></i>
                             </div>
                             <div class="name-wrapper">
-                                Create Employee From Excel
+                                Get In Csv
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a asp-controller="Employee" asp-action="CreateEmployeeFromExcel" class="nav-link">
+                            <div class="icon-wrapper">
+                                <i class="fa-solid fa-file-excel"></i>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i class="fa-solid fa-upload"></i>
+                            </div>
+                            <div class="name-wrapper">
+                                Create From Excel
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a asp-controller="Employee" asp-action="GetAllEmployeesExcel" class="nav-link">
+                            <div class="icon-wrapper">
+                                <i class="fa-solid fa-download"></i>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i class="fa-solid fa-file-excel"></i>
+                            </div>
+                            <div class="name-wrapper">
+                                Get In Excel
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a asp-controller="Employee" asp-action="GetAllEmployeesPDF" class="nav-link">
+                            <div class="icon-wrapper">
+                                <i class="fa-solid fa-download"></i>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div class="name-wrapper">
+                                Get In PDF
                             </div>
                         </a>
                     </li>
@@ -165,13 +185,10 @@
     </div>
 
 
-    <footer class="w-100 bg-dark mt-0" style="position: fixed; bottom:0; width:100%">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-              @*  <div class="col-2">
-                    <partial name="_LoginPartial" />
-                </div>*@
-                <div class="col-10 text-end">
+    <footer class="w-100 bg-dark mt-0" style="position: fixed; bottom: 0; width: 100%; height: 10%">
+        <div class="container-fluid h-100">
+            <div class="row align-items-center h-100">
+                <div class="col-12 d-flex justify-content-center">
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/ulugbek-toshtemirov-912b04262/" class="icon-link">
                             <i class="fab fa-linkedin fa-2x"></i>
@@ -187,6 +204,8 @@
             </div>
         </div>
     </footer>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)

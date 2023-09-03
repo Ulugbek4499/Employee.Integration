@@ -78,6 +78,14 @@ namespace Employee.Integration.MVC.Controllers
         }
 
         [HttpGet("[action]")]
+        public async Task<IActionResult> GetAllEmployeesPDF(string fileName = "employeesPDF")
+        {
+            var result = await Mediator.Send(new GetEmployeePDF(FileName: fileName));
+
+            return File(result.FileContents, result.Options, result.FileName);
+        }
+
+        [HttpGet("[action]")]
         public async ValueTask<IActionResult> UpdateEmployee(int Id)
         {
             var Employee = await Mediator.Send(new GetEmployeeByIdQuery(Id));
