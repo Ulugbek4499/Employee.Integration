@@ -11,7 +11,7 @@ namespace Employee.Integration.Infrastructure
         {
             services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(options =>
             {
-                options.UseNpgsql(configuration.GetConnectionString("DbConnect"));
+                options.UseSqlServer(configuration.GetConnectionString("DbConnect"));
             });
 
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();

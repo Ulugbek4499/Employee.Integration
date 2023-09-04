@@ -1,5 +1,6 @@
 using Employee.Integration.Application;
 using Employee.Integration.Infrastructure;
+using Employee.Integration.MVC.Services;
 using Serilog;
 
 namespace Employee.Integration.MVC
@@ -9,31 +10,24 @@ namespace Employee.Integration.MVC
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            SerilogService.SerilogSettings(builder.Configuration);
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
-            //builder.Services.AddApi(builder.Configuration);
             builder.Host.UseSerilog();
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
 
             var app = builder.Build();
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
 
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapControllerRoute(

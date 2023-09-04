@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Employee.Integration.Application.Common.Interfaces;
+using Employee.Integration.Application.UseCases.Employees.Notifications;
 using MediatR;
 
 namespace Employee.Integration.Application.UseCases.Employees.Commands.CreateEmployee
@@ -22,11 +23,13 @@ namespace Employee.Integration.Application.UseCases.Employees.Commands.CreateEmp
     {
         private readonly IMapper _mapper;
         private readonly IApplicationDbContext _context;
+        private readonly IMediator _mediator;
 
-        public CreateEmployeeCommandHandler(IMapper mapper, IApplicationDbContext context)
+        public CreateEmployeeCommandHandler(IMapper mapper, IApplicationDbContext context, IMediator mediator)
         {
             _mapper = mapper;
             _context = context;
+            _mediator = mediator;
         }
 
         public async Task<int> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
@@ -34,6 +37,7 @@ namespace Employee.Integration.Application.UseCases.Employees.Commands.CreateEmp
             Domain.Entities.Employee employee = _mapper.Map<Domain.Entities.Employee>(request);
             await _context.Employees.AddAsync(employee, cancellationToken);
             await _context.SaveChangesAsync();
+            await _mediator.Publish(notification: new EmployeeCreatedNotification(employee.Payroll_Number, employee.Forenames, employee.Telephone));
 
             return employee.Id;
         }
