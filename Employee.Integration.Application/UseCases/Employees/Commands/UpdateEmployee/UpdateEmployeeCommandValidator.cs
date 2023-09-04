@@ -1,11 +1,15 @@
 ﻿using FluentValidation;
 
-namespace Employee.Integration.Application.UseCases.Employees.Commands.CreateEmployee
+namespace Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmployee
 {
-    public class CreateEmployeeCommandValidator : AbstractValidator<CreateEmployeeCommand>
+    public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
     {
-        public CreateEmployeeCommandValidator()
+        public UpdateEmployeeCommandValidator()
         {
+            RuleFor(e => e.Id)
+               .NotEmpty()
+               .WithMessage("Id is required.");
+
             RuleFor(d => d.Payroll_Number)
                 .NotEmpty()
                 .MaximumLength(100)
