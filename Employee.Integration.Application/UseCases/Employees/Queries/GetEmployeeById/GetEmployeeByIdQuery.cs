@@ -29,7 +29,7 @@ namespace Employee.Integration.Application.UseCases.Employees.Queries.GetEmploye
         }
 
         private Domain.Entities.Employee FilterIfEmployeeExsists(int id)
-              => _dbContext.Employees.Find(id)?? 
+              => _dbContext.Employees.Find(id) ??
               throw new NotFoundException("There is no Employee with this Id.");
     }
 }

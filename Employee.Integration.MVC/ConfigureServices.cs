@@ -1,7 +1,6 @@
-﻿using Serilog.Events;
-using Serilog;
+﻿using Serilog;
+using Serilog.Events;
 using Telegram.Bot;
-using System.Text.Json.Serialization;
 using TelegramSink;
 
 namespace Employee.Integration.MVC
@@ -18,7 +17,7 @@ namespace Employee.Integration.MVC
             services.AddEndpointsApiExplorer();
             services.AddAuthorization();
             services.AddHttpContextAccessor();
-          
+
             return services;
         }
 

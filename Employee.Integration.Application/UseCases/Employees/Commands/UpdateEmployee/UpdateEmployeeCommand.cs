@@ -38,7 +38,7 @@ namespace Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmp
             Domain.Entities.Employee employee = await FilterIfEmployeeExists(request.Id);
             _mapper.Map(request, employee);
             _context.Employees.Update(employee);
-           
+
             await _context.SaveChangesAsync(cancellationToken);
         }
 

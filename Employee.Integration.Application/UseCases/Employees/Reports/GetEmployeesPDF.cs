@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Employee.Integration.Application.Common.Interfaces;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using MediatR;
 using Employee.Integration.Application.Common.Model;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using MediatR;
 
 namespace Employee.Integration.Application.UseCases.Employees.Reports;
 

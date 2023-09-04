@@ -1,6 +1,6 @@
-﻿using Employee.Integration.Application.Common.Interfaces;
+﻿using System.Reflection;
+using Employee.Integration.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace Employee.Integration.Infrastructure
 {

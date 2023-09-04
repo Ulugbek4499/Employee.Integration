@@ -1,8 +1,8 @@
-﻿using Employee.Integration.Application.Common.Exceptions;
+﻿using System.Net;
+using Employee.Integration.Application.Common.Exceptions;
 using Employee.Integration.Application.Common.Model;
 using Newtonsoft.Json;
 using Serilog;
-using System.Net;
 using Telegram.Bot;
 
 namespace Employee.Integration.MVC.Middlewares
