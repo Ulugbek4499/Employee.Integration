@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee.Integration.Infras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Integration.UnitTest", "Employee.Integration.UnitTest\Employee.Integration.UnitTest.csproj", "{C5E345CA-06B9-44D1-A9CC-66682E021B81}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F13FA2B-9A09-4F31-A774-C72255E48B36}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
