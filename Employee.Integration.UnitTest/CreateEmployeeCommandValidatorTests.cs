@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Bogus;
+﻿using Bogus;
 using Employee.Integration.Application.UseCases.Employees.Commands.CreateEmployee;
 using FluentAssertions;
 using FluentValidation.TestHelper;
@@ -26,14 +20,14 @@ namespace Employee.Integration.UnitTest
             {
                 Payroll_Number = Payroll_Number,
                 Forenames = "Defalult Value",
-                Surname= "Defalult Value",
-                DateOfBirth= DateTime.Now,
+                Surname = "Defalult Value",
+                DateOfBirth = DateTime.Now,
                 Telephone = "Defalult Value",
                 Mobile = "Defalult Value",
                 Address = "Defalult Value",
                 Address_2 = "Defalult Value",
                 Postcode = "Defalult Value",
-                EMail_Home ="Defalult Value",
+                EMail_Home = "Defalult Value",
                 StartDate = DateTime.Now
             };
 

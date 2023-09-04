@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Globalization;
+using AutoMapper;
 using Employee.Integration.Application.Common.Interfaces;
 using Employee.Integration.Application.UseCases.Employees.Response;
 using MediatR;
@@ -55,14 +56,14 @@ public class AddEmployeesFromCsvHandler : IRequestHandler<AddEmployeesFromCsv, L
                         Payroll_Number = fields[0],
                         Forenames = fields[1],
                         Surname = fields[2],
-                        DateOfBirth = DateTime.Parse(fields[3]),
+                        DateOfBirth = ParseDate(fields[3]),
                         Telephone = fields[4],
                         Mobile = fields[5],
                         Address = fields[6],
                         Address_2 = fields[7],
                         Postcode = fields[8],
                         EMail_Home = fields[9],
-                        StartDate = DateTime.Parse(fields[10]),
+                        StartDate = ParseDate(fields[10]),
                     };
 
                     result.Add(employee);
@@ -73,5 +74,16 @@ public class AddEmployeesFromCsvHandler : IRequestHandler<AddEmployeesFromCsv, L
         await _context.Employees.AddRangeAsync(result);
         await _context.SaveChangesAsync();
         return _mapper.Map<List<EmployeeResponse>>(result);
+    }
+    private DateTime ParseDate(string dateString)
+    {
+        // Specify the expected date format here, e.g., "dd/MM/yyyy"
+        if (DateTime.TryParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+        {
+            return parsedDate;
+        }
+
+        // Handle parsing error or return a default value
+        return DateTime.MinValue; // You can change this to suit your requirements
     }
 }

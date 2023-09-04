@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bogus;
+﻿using Bogus;
 using Employee.Integration.Application.UseCases.Employees.Commands.UpdateEmployee;
 using FluentAssertions;
 using FluentValidation.TestHelper;
@@ -23,7 +18,7 @@ namespace Employee.Integration.UnitTest
 
             var UpdateEmployeeCommand = new UpdateEmployeeCommand()
             {
-                Id=1,
+                Id = 1,
                 Payroll_Number = Payroll_Number,
                 Forenames = "Defalult Value",
                 Surname = "Defalult Value",
