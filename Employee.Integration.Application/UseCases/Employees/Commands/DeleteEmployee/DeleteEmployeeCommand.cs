@@ -2,7 +2,6 @@
 using Employee.Integration.Application.Common.Exceptions;
 using Employee.Integration.Application.Common.Interfaces;
 using Employee.Integration.Application.UseCases.Employees.Notifications;
-using Employee.Integration.Domain.Entities;
 using MediatR;
 
 namespace Employee.Integration.Application.UseCases.Employees.Commands.DeleteEmployee
